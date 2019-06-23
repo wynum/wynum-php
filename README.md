@@ -7,7 +7,7 @@ The ```Client``` needs Wynum credentials.You can either pass these directly to t
 
 $secret = "your_secret_key";
 $token = "project_token";
-$client = new Wynum\Rest\Client(secret, token);
+$client = new Wynum\Rest\Client($secret, $token);
 ```
 
 
@@ -39,9 +39,9 @@ the ```postData``` method accepts a single parameter data which is an ```associa
 <?php
 
 $client.getSchema();
-$identifer_key = client->identifier;
-$data = ['key1'=>val1, 'key2'=>val2, identifer_key=>'id_string'];
-$res = client->postData($data);
+$identifer_key = $client->identifier;
+$data = ['key1'=>val1, 'key2'=>val2, $identifer_key=>'id_string'];
+$res = $client->postData($data);
 ```
 If the call is successful it returns the ```associative array``` containing the created data instance. If there is some error the ```associative array``` will contain ```_error``` and ```_message``` keys.  You should check this to check for errors.
 
@@ -73,7 +73,7 @@ The ```updateData``` method is same as that of ```postData``` method.
 <?php
 
 $client.getSchema();
-$identifer_key = client->identifier;
-$data = ['key1'=>val1, 'key2'=>val2, identifer_key=>'id_string'];
-$res = client->updateData($data);
+$identifer_key = $client->identifier;
+$data = ['key1'=>val1, 'key2'=>val2, $identifer_key=>'id_string'];
+$res = $client->updateData($data);
 ```
