@@ -89,10 +89,10 @@ class Client
         if (array_key_exists('_error', $response_data)) {
             switch ($response_data['_message']) {
                 case 'Secret Key Error':
-                    throw new \Exception("Secret Key Error");
+                    throw new AuthException("Secret Key Error!");
                     break;
                 case 'Not Found':
-                    throw new \Exception("Invalid Token");
+                    throw new InvalidTokenException("Invalid Token!");
                     break;
             }
         }
