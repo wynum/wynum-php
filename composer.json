@@ -24,5 +24,8 @@
         "classmap": [
             "src/"
         ]
+    },
+    "scripts": {
+        "test": "./vendor/bin/phpunit"
     }
 }
