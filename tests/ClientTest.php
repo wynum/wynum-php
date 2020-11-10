@@ -35,7 +35,7 @@ class ClientTest extends TestCase
     public function testPostData()
     {
         $res = $this->client->postData($this->data);
-        $this->assertArrayNotHasKey("error", $res);
+        $this->assertArrayNotHasKey("_error", $res);
 
         $this->expectException(Wynum\Rest\AuthException::class);
         $this->wrong_key_client->postData($this->data);
@@ -49,13 +49,13 @@ class ClientTest extends TestCase
         $client = new Wynum\Rest\Client("a742bc685f072fe624f61ee2119d66982x", "6138287");
         $data = ["id" => "2", "file" => fopen(__FILE__, 'r')];
         $res = $client->postData($data);
-        $this->assertArrayNotHasKey("error", $res);
+        $this->assertArrayNotHasKey("_error", $res);
     }
 
     public function testUpdateData()
     {
         $res = $this->client->updateData($this->data);
-        $this->assertArrayNotHasKey("error", $res);
+        $this->assertArrayNotHasKey("_error", $res);
 
         $this->expectException(Wynum\Rest\AuthException::class);
         $this->wrong_key_client->updateData($this->data);
@@ -69,13 +69,13 @@ class ClientTest extends TestCase
         $client = new Wynum\Rest\Client("a742bc685f072fe624f61ee2119d66982x", "6138287");
         $data = ["id" => "2", "file" => fopen(__FILE__, 'r')];
         $res = $client->updateData($data);
-        $this->assertArrayNotHasKey("error", $res);
+        $this->assertArrayNotHasKey("_error", $res);
     }
 
     public function testGetData()
     {
         $res = $this->client->getData();
-        $this->assertArrayNotHasKey("error", $res);
+        $this->assertArrayNotHasKey("_error", $res);
 
         $this->expectException(Wynum\Rest\AuthException::class);
         $this->wrong_key_client->getData();
@@ -87,7 +87,7 @@ class ClientTest extends TestCase
     public function testGetSchema()
     {
         $res = $this->client->getSchema();
-        $this->assertArrayNotHasKey("error", $res);
+        $this->assertArrayNotHasKey("_error", $res);
 
         $this->expectException(Wynum\Rest\AuthException::class);
         $this->wrong_key_client->getSchema();
