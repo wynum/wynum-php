@@ -32,7 +32,6 @@ class Client
         $response = $this->http_client->request('GET', $this->schema_url);
         $data = json_decode($response->getBody(), true);
         $this->validateData($data);
-
         $this->identifier = $data['identifer'];
         $schema_json_list = $data['components'];
 
@@ -91,9 +90,13 @@ class Client
                 case 'Secret Key Error':
                     throw new AuthException("Secret Key Error!");
                     break;
+                case 'Process not found.':
+                    throw new AuthException("Secret Key Error!");
+                    break;
                 case 'Not Found':
                     throw new InvalidTokenException("Invalid Token!");
                     break;
+                default:
             }
         }
     }
