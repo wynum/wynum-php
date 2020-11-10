@@ -1,6 +1,6 @@
 <?php namespace Wynum\Rest;
 
-class InvalidTokenException extends Exception
+class InvalidTokenException extends \Exception
 {
     
 }
